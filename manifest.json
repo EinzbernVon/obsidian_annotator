@@ -1,0 +1,9 @@
+{
+    "id": "md-annotator",
+    "name": "MD Annotator",
+    "version": "1.0.0",
+    "minAppVersion": "1.4.0",
+    "description": "为 Markdown 文件添加批注功能，支持源码/预览双向高亮、Wiki-link 跨链接批注、追踪模式双向跳转。",
+    "author": "Jimmy Xiang",
+    "isDesktopOnly": false
+}

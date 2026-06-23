@@ -1,0 +1,303 @@
+/* ============================================================
+   MD Annotator - Obsidian Plugin Styles
+   ============================================================ */
+
+/* ---- Sidebar Panel ---- */
+.annotator-sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+}
+
+.annotator-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--background-modifier-border);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-normal);
+}
+
+.annotator-sidebar-header .count-badge {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border-radius: 10px;
+    padding: 1px 8px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.annotator-anno-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px;
+}
+
+.annotator-anno-item {
+    background: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.annotator-anno-item:hover {
+    border-color: var(--interactive-accent);
+    background: var(--background-secondary-alt);
+}
+
+.annotator-anno-item.active {
+    border-color: var(--interactive-accent);
+    background: rgba(var(--interactive-accent-rgb), 0.1);
+}
+
+.annotator-anno-item .anno-source-text {
+    font-size: 11px;
+    color: var(--interactive-accent);
+    margin-bottom: 4px;
+    word-break: break-all;
+    line-height: 1.4;
+    max-height: 40px;
+    overflow: hidden;
+    opacity: 0.8;
+}
+
+.annotator-anno-item .anno-note {
+    font-size: 13px;
+    color: var(--text-normal);
+    font-weight: 600;
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+.annotator-anno-item .anno-delete {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 22px;
+    height: 22px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 13px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.annotator-anno-item:hover .anno-delete {
+    opacity: 1;
+}
+
+.annotator-anno-item .anno-delete:hover {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+
+.annotator-empty {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 40px 16px;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* ---- Editor Highlight (CodeMirror decoration) ---- */
+.cm-anno-highlight {
+    background: rgba(var(--interactive-accent-rgb), 0.2);
+    border-bottom: 2px solid var(--interactive-accent);
+    border-radius: 3px;
+    padding: 1px 0;
+    transition: background 0.2s;
+}
+
+.cm-anno-highlight:hover,
+.cm-anno-highlight.cm-anno-active {
+    background: rgba(var(--interactive-accent-rgb), 0.4);
+}
+
+/* ---- Reading View Highlight ---- */
+.anno-highlight {
+    background: rgba(var(--interactive-accent-rgb), 0.2);
+    color: inherit;
+    border-bottom: 2px solid var(--interactive-accent);
+    border-radius: 3px;
+    padding: 1px 2px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.anno-highlight:hover,
+.anno-highlight.active {
+    background: rgba(var(--interactive-accent-rgb), 0.45);
+    outline: 2px solid var(--interactive-accent);
+}
+
+/* ---- Modal ---- */
+.annotator-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.annotator-modal {
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 12px;
+    padding: 24px;
+    width: 440px;
+    max-width: 90vw;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.annotator-modal h3 {
+    color: var(--interactive-accent);
+    margin: 0 0 16px 0;
+    font-size: 16px;
+}
+
+.annotator-modal label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.annotator-modal .selected-text {
+    background: var(--background-secondary);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--interactive-accent);
+    margin-bottom: 12px;
+    max-height: 80px;
+    overflow-y: auto;
+    word-break: break-all;
+    border: 1px solid var(--background-modifier-border);
+}
+
+.annotator-modal textarea {
+    width: 100%;
+    height: 90px;
+    padding: 8px 12px;
+    background: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    color: var(--text-normal);
+    font-size: 13px;
+    resize: vertical;
+    outline: none;
+    font-family: inherit;
+}
+
+.annotator-modal textarea:focus {
+    border-color: var(--interactive-accent);
+}
+
+.annotator-modal .modal-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+
+.annotator-modal .modal-actions button {
+    padding: 6px 16px;
+    border-radius: 6px;
+    border: 1px solid var(--background-modifier-border);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.annotator-modal .btn-cancel {
+    background: var(--background-secondary);
+    color: var(--text-normal);
+}
+
+.annotator-modal .btn-confirm {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border-color: var(--interactive-accent);
+}
+
+.annotator-modal .btn-confirm:hover {
+    opacity: 0.9;
+}
+
+/* ---- Trace Mode Notice ---- */
+.annotator-trace-notice {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    z-index: 9999;
+    animation: annotator-fade-in-up 0.3s;
+    pointer-events: none;
+}
+
+@keyframes annotator-fade-in-up {
+    from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ---- Status bar item ---- */
+.annotator-status {
+    font-size: 12px;
+}
+
+.annotator-status.has-annos {
+    color: var(--interactive-accent);
+}
+/* ---- Floating Toolbar for Reading View ---- */
+.annotator-floating-toolbar {
+    position: absolute;
+    z-index: 10001;
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 4px;
+    display: flex;
+    gap: 4px;
+    animation: annotator-fade-in-up 0.2s;
+}
+
+.annotator-floating-toolbar button {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+}
+
+.annotator-floating-toolbar button:hover {
+    opacity: 0.9;
+}
