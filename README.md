@@ -1,3 +1,5 @@
+## 文件结构：
+```
 obsidian-annotator/
 ├── manifest.json          # 插件清单
 ├── package.json           # 构建配置
@@ -5,9 +7,9 @@ obsidian-annotator/
 ├── esbuild.config.mjs     # 打包脚本
 ├── styles.css             # 样式文件
 └── main.ts                # 主逻辑
-
+```
 ---
-
+## 安装步骤
 ### 第一步：
 文件夹解压后放在/.obsidian/plugin里面
 
